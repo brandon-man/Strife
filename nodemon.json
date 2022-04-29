@@ -1,0 +1,9 @@
+{
+  "execMap": {
+    "ts": "ts-node"
+  },
+  "verbose": true,
+  "ignore": ["node_modules", ".next"],
+  "watch": ["server/**/*", "server.ts"],
+  "ext": "ts json"
+}

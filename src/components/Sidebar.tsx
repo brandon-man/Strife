@@ -16,7 +16,7 @@ const Sidebar = ({ fullWidth }: { fullWidth: boolean }) => {
       maxWidth={fullWidth ? "100vw" : "30vw"}
       width={fullWidth ? "100vw" : ""}
       direction="column"
-      borderRight="1px solid"
+      borderRight={fullWidth ? "0px solid" : "1px solid"}
       borderColor={colorMode === "light" ? "gray.200" : "gray.700"}
     >
       <Flex flexWrap="wrap" direction="column">

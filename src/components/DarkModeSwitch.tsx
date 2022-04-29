@@ -1,8 +1,7 @@
-import { NextPage } from "next";
 import { useColorMode, IconButton } from "@chakra-ui/react";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 
-const DarkModeSwitch: NextPage = () => {
+const DarkModeSwitch = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const iconColor = {
     light: "gray.600",

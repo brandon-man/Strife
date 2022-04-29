@@ -6,26 +6,39 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start:server": "ts-node src/server/index.ts"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "2.0.0-next.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@reduxjs/toolkit": "^1.8.1",
+    "apollo-server-express": "^3.6.7",
+    "class-validator": "^0.13.2",
+    "express": "^4.18.0",
     "firebase": "^9.6.11",
     "framer-motion": "^6.3.2",
+    "graphql": "^15.8.0",
     "next": "12.1.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
   },
   "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/graphql": "^14.5.0",
     "@types/node": "17.0.29",
     "@types/react": "18.0.8",
     "@types/react-dom": "18.0.0",
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.5",
+    "nodemon": "^2.0.15",
+    "prisma": "^3.13.0",
+    "ts-node": "^10.7.0",
     "typescript": "4.6.3"
   }
 }
