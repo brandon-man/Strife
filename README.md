@@ -11,7 +11,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 #### Backend
 
-- [Firebase](https://firebase.google.com/)
 - [Express](https://firebase.google.com/)
 - [TypeGraphQL](https://typegraphql.com/)
 - [PostgreSQL](https://www.postgresql.org/)

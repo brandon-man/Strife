@@ -1,34 +1,30 @@
 import "reflect-metadata";
-import { ApolloServer } from "apollo-server-express";
-import express = require("express");
-import { buildSchema, Resolver, Query } from "type-graphql";
+import * as tq from "type-graphql";
+import {
+  ChatCreateInput,
+  ChatResolver,
+  SortOrder,
+} from "../graphql/resolvers/ChatResolver";
+import { UserResolver } from "../graphql/resolvers/UserResolver";
+import { ApolloServer } from "apollo-server";
+import { DateTimeResolver } from "graphql-scalars";
+import { context } from "../graphql/resolvers/context";
+import { GraphQLScalarType } from "graphql";
 
-@Resolver()
-class HelloResolver {
-  @Query(() => String, { name: "helloWorld" })
-  async hello() {
-    return "Hello World";
-  }
-}
-
-const main = async () => {
-  const schema = await buildSchema({
-    resolvers: [HelloResolver],
+const app = async () => {
+  tq.registerEnumType(SortOrder, {
+    name: "SortOrder",
   });
 
-  const apolloServer = new ApolloServer({ schema });
-
-  const app = express();
-
-  await apolloServer.start();
-
-  apolloServer.applyMiddleware({ app });
-
-  const port = process.env.PORT || 5000;
-
-  app.listen(port, () => {
-    console.log(`Server is listening on http://localhost:${port}/graphql`);
+  const schema = await tq.buildSchema({
+    resolvers: [ChatResolver, UserResolver, ChatCreateInput],
+    scalarsMap: [{ type: GraphQLScalarType, scalar: DateTimeResolver }],
   });
+
+  new ApolloServer({ schema, context: context }).listen({ port: 4000 }, () =>
+    console.log(`
+🚀 Server ready at: http://localhost:4000`)
+  );
 };
 
-main();
+app();

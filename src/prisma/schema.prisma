@@ -10,25 +10,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id Int @id@default(autoincrement())
-  username String @unique
-  password String 
-  messages Chat[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @default(now())
-  Chat Chat[]  @relation("RecieverOfChat")
+model  User {
+id Int  @id  @default(autoincrement())
+name String
+password String
+messages Chat[]
+createdAt DateTime  @default(now())
+updatedAt DateTime  @default(now())
+Chat Chat[]  @relation("ReceiverOfChat")
 }
 
-model Chat {
-  id Int @id@default(autoincrement())
-  receiverId Int
-  receiver User  @relation("RecieverOfChat", fields: [receiverId], references: [id])
-  sender User  @relation(fields: [senderId], references: [id])
-  senderId Int
-  message String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @default(now())
+model  Chat {
+id Int  @id  @default(autoincrement())
+receiverId Int
+receiver User  @relation("ReceiverOfChat", fields: [receiverId], references: [id])
+sender User  @relation(fields: [senderId], references: [id])
+senderId Int
+message String
+createdAt DateTime  @default(now())
+updatedAt DateTime  @default(now())
 }
 
 

@@ -1,11 +1,14 @@
-import { Prisma } from "@prisma/client";
-
-const userData: Prisma.UserCreateInput[] = [
+export const users = [
   {
     username: "lucy",
     password: "lucy_pw",
-    messages: "hi, what're you up to?",
+  },
+  {
+    username: "moe",
+    password: "moe_pw",
+  },
+  {
+    username: "larry",
+    password: "larry_pw",
   },
 ];
-
-export default userData;
